@@ -6,16 +6,16 @@
 buildNpmPackage {
 
   pname = "mc-build";
-  version = "4.0.2";
+  version = "4.1.1";
 
   src = fetchFromGitHub {
     owner = "mc-build";
     repo = "mcb";
-    rev = "9c13d60e590bd5b195734ba0e2d102829c24062d";
-    hash = "sha256-EJpw2WloGE2m5JZiuLT3VwK9d7md48hUUqXyoJK+L1w=";
+    rev = "031f6d411b54e2e6f79b9543f15a1ed876408a0f";
+    hash = "sha256-MZAiEy/cYvKIE3gKGyL0f6BoWO/swiPf2U3LF7/i18g=";
   };
 
-  npmDepsHash = "sha256-OkLYQ64FwpW/x9nQZsHtCo1mSnyNl8uqKOWxhTybUhA=";
+  npmDepsHash = "sha256-/Rs7wvb7FhZ/CIxlwg/4Wwn8I3snqvk552rkH5qG7hw=";
   npmBuildScript = "dist";
 
   postInstall = ''

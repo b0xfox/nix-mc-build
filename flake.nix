@@ -7,25 +7,23 @@
     { self, nixpkgs }:
     let
       forEachSystem = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
-
-      mc-buildPackages =
-        system:
-        let
-          pkgs = import nixpkgs { inherit system; };
-
-          mc-build = pkgs.callPackage ./mc-build { };
-
-          addedPackages = {
-            inherit mc-build;
-          };
-        in
-        addedPackages;
     in
     {
-      packages = forEachSystem mc-buildPackages;
-
       overlays.default = final: prev: {
-        inherit (self.packages.${prev.stdenv.hostPlatform.system}) mc-build;
+        mc-build = final.callPackage ./pkgs/mc-build { };
       };
+
+      packages = forEachSystem (
+        system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [ self.overlays.default ];
+          };
+        in
+        {
+          inherit (pkgs) mc-build;
+        }
+      );
     };
 }
