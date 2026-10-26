@@ -6,13 +6,13 @@
 buildNpmPackage {
 
   pname = "mc-build";
-  version = "4.1.3";
+  version = "4.3.1";
 
   src = fetchFromGitHub {
     owner = "mc-build";
     repo = "mcb";
-    rev = "7865a1049b477af581cdefc8d2a23096186f68fd";
-    hash = "sha256-BSvagLFasjSVHKrX4+rcIx9HON1iqQufj9VVnkV4vK4=";
+    rev = "ee41ca6c6640771e7a378ba90f31c2101bc63819";
+    hash = "sha256-gB1pITl/9eeHdA5sTthGiCLC/zwGiSzAvCkTO9KwuNg=";
   };
 
   npmDepsHash = "sha256-4AcuEbi0TTqNrHHgyytHIQLK9ZL3C56GsY0gikCmTec=";
